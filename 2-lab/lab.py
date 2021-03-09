@@ -2,6 +2,7 @@ import re
 import keyword
 
 
+# Finding identifiers in string
 def find_identifier(user_input):
     find_ident_re = re.compile(r'\b[^\W\d][\w]{0,78}\b')
     finded_ident = find_ident_re.findall(user_input)
@@ -14,6 +15,7 @@ def find_identifier(user_input):
         print(result)
 
 
+# Сheck whether the string can be an identifier
 def is_identifier(user_input):
     find_ident_re = re.compile(r'\b[^\W\d][\w]{0,78}\b')
     match = find_ident_re.fullmatch(user_input)
@@ -25,6 +27,7 @@ def is_identifier(user_input):
         print("This string is a keyword")
 
 
+# Check the variant of input
 variant = input("""Press:
 (1) to check one identifier
 (2) to find the list of identifiers: """)
