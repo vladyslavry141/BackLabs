@@ -1,21 +1,23 @@
 import re
 import keyword
 
-def find_words(user_input):
-	find_words_re = re.compile(r'\b[^\W\d][\w]{0,78}\b')
-	finded_indef = find_words_re.findall(user_input)
-	checked = filter(lambda word: word not in keyword.kwlist, list_words)
-	result = ", ".join(checked)
+def find_identifier(user_input):
+	find_ident_re = re.compile(r'\b[^\W\d][\w]{0,78}\b')
+	finded_ident = find_ident_re.findall(user_input)
+	checked_ident = filter(lambda word: word not in keyword.kwlist, finded_ident)
+	result = ", ".join(checked_ident)
 	print(result)
 
 
-def check_word(user_input):
-	p = re.compile(r'\b[^\W\d][\w]{0,78}\b')
-	match = p.fullmatch(user_input)
+def is_identifier(user_input):
+	find_ident_re = re.compile(r'\b[^\W\d][\w]{0,78}\b')
+	match = find_ident_re.fullmatch(user_input)
 	if match is None:
-		print(False)
+		print("This string can not be a identifier")
+	elif match[0] not in keyword.kwlist:
+		print("This string can not be a identifier")
 	else:
-		print(match not in keyword.kwlist)
+		print("This string is a keyword")
 
 
 variant = input("""Press:
@@ -23,8 +25,8 @@ variant = input("""Press:
 (2) to find the list of identifiers: """)
 user_input = input("Enter the string: ")
 if(variant == '1'):
-	check_word(user_input)
+	is_identifier(user_input)
 elif(variant == '2'):
-	find_words(user_input)
+	find_identifier(user_input)
 else:
 	print("Wrong input")
