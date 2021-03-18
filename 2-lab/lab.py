@@ -22,7 +22,7 @@ def is_identifier(user_input):
     if match is None:
         print("This string can not be a identifier")
     elif match[0] not in keyword.kwlist:
-        print("This string can not be a identifier")
+        print("This string can be a identifier")
     else:
         print("This string is a keyword")
 
