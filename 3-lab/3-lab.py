@@ -1,5 +1,5 @@
 import re
-from tkinter import *
+import tkinter as tk
 from tkinter import messagebox
 from tkinter import scrolledtext
 
@@ -69,14 +69,14 @@ def result_clicked():
 
 
 # Graphical user interface settings
-window = Tk()
+window = tk.Tk()
 window.title("Lab-3")
 window.geometry('500x250')
-lbl = Label(window, text="Enter text")
+lbl = tk.Label(window, text="Enter text")
 lbl.grid(column=2, row=0)
 txt = scrolledtext.ScrolledText(window, width=60, height=10)
 txt.grid(column=2, row=1)
 txt.focus()
-btn = Button(window, text="Analize", command=result_clicked)
+btn = tk.Button(window, text="Analize", command=result_clicked)
 btn.grid(column=2, row=2)
 window.mainloop()
